@@ -1,6 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./utils/store.js";
 import "./index.css";
 import Body from "./components/Body.jsx";
 import Header from "./components/Header.jsx";
@@ -10,8 +12,10 @@ import Blog from "./components/Blog.jsx";
 const AppLayout = () => {
   return (
     <>
-      <Header />
-      <Outlet />
+      <Provider store={store}>
+        <Header />
+        <Outlet />
+      </Provider>
     </>
   );
 };
